@@ -41,7 +41,7 @@ For example, `scripts/qc/qc_mdd_female_sumstats.R` performs:
 - Filtering variants by:
   - valid BETA/SE
   - MAF threshold (default ≥ 0.01)
-  - optional heterogeneity filter (HetISq ≤ 80 if available)
+  - heterogeneity filter (HetISq ≤ 80 )
   - minimum effective sample size (default ≥ 60% of maximum N)
 - Sanity check: recompute Z and compare P-values derived from Z against reported P-values
 - Output a harmonized table with columns suitable for downstream tools:
