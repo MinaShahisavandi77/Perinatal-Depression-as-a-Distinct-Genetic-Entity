@@ -206,9 +206,7 @@ Run:
 export COJO_OUTDIR="/path/to/results/SBayesRC/COJO"
 
 # Genomic SEM result table locations (optional but recommended)
-export GSEM_MDD_F_DIR="/path/to/results_model1/MDD_F"
-export GSEM_MDD_DIR="/path/to/results_model1/MDD"
-
+export GSEM_DIR="/path/to/results_model1/"
 # Original GWAS location
 export ORIG_GWAS_DIR="/path/to/GWAS"
 
