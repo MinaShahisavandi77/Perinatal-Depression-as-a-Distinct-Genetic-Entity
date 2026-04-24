@@ -45,6 +45,6 @@ For example, `scripts/qc/qc_mdd_female_sumstats.R` performs:
   - minimum effective sample size (default ≥ 60% of maximum N)
 - Sanity check: recompute Z and compare P-values derived from Z against reported P-values
 - Output a harmonized table with columns suitable for downstream tools:
-  `SNP, CHR, BP, A1, A2, BETA, SE, P, N, MAF`
+  `SNP, CHR, BP, A1, A2, BETA, SE, P, N, MAF,Z`
 
 > Note: The QC script writes a gzipped TSV when the output path ends with `.gz`.
