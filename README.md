@@ -215,28 +215,6 @@ export ORIG_GWAS_DIR="/path/to/GWAS"
 Rscript scripts/sbayesrc/make_cojo_sumstats.R
 ```
 
-## SBayesRC: prepare COJO-format summary statistics
-
-SBayesRC (via GCTB) typically expects a COJO-style summary statistics file with columns:
-
-`SNP  A1  A2  freq  b  se  p  N`
-
-`scripts/sbayesrc/make_cojo_sumstats.R` converts:
-- Genomic SEM GWAS-by-subtraction outputs (using `est`, `SE`, `Pval_Estimate`, and `Neff` to populate `N`)
-- Original GWAS summary statistics (using `BETA`, `SE`, `P`, `N`)
-
-Run:
-
-```bash
-export COJO_OUTDIR="/path/to/results/SBayesRC/COJO"
-
-# Genomic SEM result table locations 
-export GSEM_DIR="/path/to/results_model1/"
-# Original GWAS location
-export ORIG_GWAS_DIR="/path/to/GWAS"
-
-Rscript scripts/sbayesrc/make_cojo_sumstats.R
-```
 ## PRS weights with SBayesRC (example SLURM script)
 
 `scripts/sbayesrc/run_sbayesrc_prs.slurm.sh` runs the standard SBayesRC workflow:
