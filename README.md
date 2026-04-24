@@ -230,16 +230,88 @@ Run:
 ```bash
 export COJO_OUTDIR="/path/to/results/SBayesRC/COJO"
 
-# Genomic SEM result table locations (optional but recommended)
-export GSEM_MDD_F_DIR="/path/to/results_model1/MDD_F"
-export GSEM_MDD_DIR="/path/to/results_model1/MDD"
-
+# Genomic SEM result table locations 
+export GSEM_DIR="/path/to/results_model1/"
 # Original GWAS location
 export ORIG_GWAS_DIR="/path/to/GWAS"
 
 Rscript scripts/sbayesrc/make_cojo_sumstats.R
 ```
+## PRS weights with SBayesRC (example SLURM script)
 
+`scripts/sbayesrc/run_sbayesrc_prs.slurm.sh` runs the standard SBayesRC workflow:
+1. `SBayesRC::tidy()` (harmonize/QC summary statistics to the LD panel)
+2. `SBayesRC::impute()` (impute missing SNPs to the LD SNP panel)
+3. `SBayesRC::sbayesrc()` (fit SBayesRC and output SNP weights)
+
+### Running the script
+
+Set required inputs as environment variables:
+
+```bash
+export SBRC_MA_FILE="/path/to/trait_sumstats_cojo.ma"
+export SBRC_LD_DIR="/path/to/ukbEUR_HM3/"
+export SBRC_ANNOT_FILE="/path/to/annot_baseline2.2.txt"
+export SBRC_OUT_PREFIX="/path/to/results/sbayesrc/trait/trait_eur"
+
+sbatch scripts/sbayesrc/run_sbayesrc_prs.slurm.sh
+```
+
+### Tuning vs predefined threshold (study-specific)
+
+- **PPD_unique (PPD_resid)** had **very low SNP heritability**, so we used a **predefined threshold**:
+  - `SBRC_MODE=low_h2`
+  - `thresh=0.95`
+  - `bTune=FALSE`
+
+Example:
+
+```bash
+export SBRC_MODE="low_h2"
+export SBRC_THRESH="0.95"
+sbatch scripts/sbayesrc/run_sbayesrc_prs.slurm.sh
+```
+
+- For **other summary statistics / traits**, we enabled **tuning**:
+  - `SBRC_MODE=tune`
+  - `bTune=TRUE`
+
+Example:
+
+```bash
+export SBRC_MODE="tune"
+sbatch scripts/sbayesrc/run_sbayesrc_prs.slurm.sh
+```
+
+### Output
+The main PRS weights file is:
+
+- `${SBRC_OUT_PREFIX}_sbrc.weight`
+
+## PRS evaluation (LMM)
+
+`scripts/pgs/02_gsem_prs_lmm.R`:
+- creates a one-pregnancy-per-IID dataset
+- exports correlation matrices (Excel)
+- reshapes outcomes to long format
+- fits LMMs with random intercept `(1|IID)` across multiple PRS/time/history model specifications
+- runs a sensitivity analysis stratified by `history_dep`
+
+Run:
+
+```bash
+export PGS_INPUT_CSV="/path/to/dataseteuropaen_genr_mothers.csv"
+export PGS_OUT_DIR="/path/to/PGS/result"
+
+Rscript scripts/pgs/02_gsem_prs_lmm.R
+```
+
+Optional Word export (requires `officer` and `flextable` installed):
+
+```bash
+export EXPORT_WORD=1
+Rscript scripts/pgs/02_gsem_prs_lmm.R
+```
 
 
 
