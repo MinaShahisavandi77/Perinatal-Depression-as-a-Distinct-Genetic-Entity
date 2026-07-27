@@ -1,35 +1,39 @@
-# --- Secrets / dangerous to push (NEVER commit these) ---
-.env
-.env.*
-*.key
-*.pem
-*.p12
-credentials*
-secrets*
-*token*
-config.json
-
-# --- Python environment & cache ---
-.venv/
-venv/
-env/
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
-
-# --- Data files (keep the repo light) ---
-data/
+# --- Data files ---
 *.csv
 *.tsv
-*.txt
-*.xlsx
-*.xls
-*.gz
-*.zip
+*.json
+*.xml
+*.dat
+*.data
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.pkl
+*.pickle
 *.h5
-*.h5ad
-*.loom
-*.mtx
+*.hdf5
 
-# --- macOS junk ---
-.DS_Store
+# --- CSS files ---
+*.css
+*.scss
+*.sass
+*.less
+
+# --- Excel / spreadsheet files ---
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.xlt
+*.xltx
+*.ods
+
+# --- Archive / ZIP files ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.rar
+*.7z
