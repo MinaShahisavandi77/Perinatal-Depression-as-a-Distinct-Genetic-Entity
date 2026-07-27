@@ -1,0 +1,35 @@
+# --- Secrets / dangerous to push (NEVER commit these) ---
+.env
+.env.*
+*.key
+*.pem
+*.p12
+credentials*
+secrets*
+*token*
+config.json
+
+# --- Python environment & cache ---
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- Data files (keep the repo light) ---
+data/
+*.csv
+*.tsv
+*.txt
+*.xlsx
+*.xls
+*.gz
+*.zip
+*.h5
+*.h5ad
+*.loom
+*.mtx
+
+# --- macOS junk ---
+.DS_Store
