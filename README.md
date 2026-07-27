@@ -22,7 +22,7 @@ The pipeline consists of:
   - GWAS-by-subtraction to isolate PND-unique genetic signal and MDD_shared signal
 
 - **Polygenic score (PGS) construction**
-  - PGS generation using **SBayesR** (Bayesian regression)
+  - PGS generation using **SBayesRC** (Bayesian regression)
 
 - **PGS evaluation**
   - Testing PGS performance using **linear mixed models (LMMs)**
