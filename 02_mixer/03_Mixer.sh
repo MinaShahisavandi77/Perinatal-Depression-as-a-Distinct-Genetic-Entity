@@ -12,12 +12,12 @@ set -euo pipefail
 # Output directory
 OUTDIR="/home/m.shahisavandi/GSEM/project/02_MiXeR/"
 mkdir -p "$OUTDIR"
-SIF="/home/m.shahisavandi/Downloads/mixer/gsa-mixer_2.2.1.sif"
+SIF="/mixer/gsa-mixer_2.2.1.sif"
 
-SUM1="/home/m.shahisavandi/GSEM/project/GWAS_QC/ppd.qc.sumstats.gz"
-SUM2="/home/m.shahisavandi/GSEM/project/GWAS_QC/mdd_f.qc.sumstats.gz"
-BIM_FILE="/home/m.shahisavandi/GSEM/project/ld/1000G.EUR.QC.@.bim"
-LD_FILE="/home/m.shahisavandi/GSEM/project/ld/1000G.EUR.QC.@.run4.ld"
+SUM1="/GWAS_QC/ppd.qc.sumstats.gz"
+SUM2="/GWAS_QC/mdd_f.qc.sumstats.gz"
+BIM_FILE="/ld/1000G.EUR.QC.@.bim"
+LD_FILE="/ld/1000G.EUR.QC.@.run4.ld"
 ###############################################################################
 # Wrapper
 ###############################################################################

@@ -8,17 +8,17 @@ set -euo pipefail
 ###############################################################################
 # User inputs
 ###############################################################################
-OUTDIR="/home/m.shahisavandi/GSEM/LAVA/results_final/mix/ppd_mdd_mix"
+OUTDIR="results_final/mix/ppd_mdd_mix"
 mkdir -p "$OUTDIR"
 
-SIF="/home/m.shahisavandi/Downloads/mixer/gsa-mixer_2.2.1.sif"
+SIF="/mixer/gsa-mixer_2.2.1.sif"
 
 # Sumstats
-SUM1="/home/m.shahisavandi/GSEM/LAVA/results_final/LAVA/GWAS/ppd.qc.lava.sumstats"
-SUM2="/home/m.shahisavandi/GSEM/LAVA/results_final/LAVA/GWAS/mdd_f.qc.lava.sumstats"
+SUM1="/GWAS/ppd.qc.lava.sumstats"
+SUM2="/GWAS/mdd_f.qc.lava.sumstats"
 
 # Reference + LD
-BIM_FILE="/home/m.shahisavandi/GSEM/LAVA/results_final/mix/ppd_mdd_mix/ld/1000G.EUR.QC.@.bim"
+BIM_FILE="mix/ppd_mdd_mix/ld/1000G.EUR.QC.@.bim"
 LD_FILE="$OUTDIR/ld/1000G.EUR.QC.@.run4.ld"
 
 # Where to write figures
